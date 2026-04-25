@@ -8,6 +8,7 @@ This Project focuses on Verify the the Signature of the any person using deep le
 - Model Predicts that the Signature is Genuine or Forged
 
 ## Installation
+``` bash
 1. Clone the Repo:
     git clone https://github.com/yourusername/project-name.git
 2. Go into Directory :
@@ -21,7 +22,7 @@ This Project focuses on Verify the the Signature of the any person using deep le
 6.  Run the Website:
     streamlit cache clear
     streamlit run app.py
-
+```
     
 ## Discussion 
 Our aim in this project is to build a web application that takes a person’s signature as input and verifies whether it is genuine or forged. We implemented a Siamese network based on EfficientNetB0 for signature verification.
@@ -37,10 +38,10 @@ Based on our understanding, cross-dataset training or incorporating multiple dat
 We are students currently learning deep learning and machine learning, and we welcome contributions or suggestions to improve this work. Any help or collaboration would be greatly appreciated. 
 
 ## Results
-![Model Training](images/BESTMODELACC.png)
-![Confusion Matrix](images/BESTMODELCNFM.png)
-![Dataset](images/BESTMODELDATSET.png)
-![Roc](images/BESTMODELROC.png)
+![Model Training](results/BESTMODELACC.png)
+![Confusion Matrix](results/BESTMODELCNFM.png)
+![Dataset](results/BESTMODELDATSET.png)
+![Roc](results/BESTMODELROC.png)
 
 ## AppLication InterFace
 ![Front page](images/App1.png)
