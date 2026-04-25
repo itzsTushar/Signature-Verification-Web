@@ -37,17 +37,17 @@ Based on our understanding, cross-dataset training or incorporating multiple dat
 We are students currently learning deep learning and machine learning, and we welcome contributions or suggestions to improve this work. Any help or collaboration would be greatly appreciated. 
 
 ## Results
-![Model Training]{images/BESTMODELACC.png}
-![Confusion Matrix]{images/BESTMODELCNFM.png}
-![Dataset]{images/BESTMODELDATSET.png}
-![Roc]{images/BESTMODELROC.png}
+![Model Training](images/BESTMODELACC.png)
+![Confusion Matrix](images/BESTMODELCNFM.png)
+![Dataset](images/BESTMODELDATSET.png)
+![Roc](images/BESTMODELROC.png)
 
 ## AppLication InterFace
-![Front page]{images/App1.png}
-![upload sign]{images/App3.png}
-![Sec page]{images/App4.png}
-![Verify sign]{images/App5.png}
-![Verfiy Real]{images/App6.png}
+![Front page](images/App1.png)
+![upload sign](images/App3.png)
+![Sec page](images/App4.png)
+![Verify sign](images/App5.png)
+![Verfiy Real](images/App6.png)
 
 
 #Dataset Detail 
