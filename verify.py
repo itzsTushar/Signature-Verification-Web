@@ -9,8 +9,8 @@ import os
 from model.metrics import euclidean_distance,constructive_loss
 from data.preprocess import process_image
 # ---------------- CONFIG ----------------
-THRESHOLD = 0.98
-MODEL_PATH ="model/BestModel.h5"
+THRESHOLD = 0.526
+MODEL_PATH ="model/BestModel (1).h5"
 
 
 # ---------------- LOAD MODEL ----------------
@@ -23,7 +23,7 @@ def load_my_model():
             "constructive_loss": constructive_loss
         }
     )
-
+print(MODEL_PATH)
 # ---------------- MAIN PAGE ----------------
 def verify_page():
 
@@ -38,6 +38,8 @@ def verify_page():
 
     if test_file:
 
+        #test_path = preprocess_to_dataset_style(np.array(Image.open(test_file)),"TEST.png")
+        #test_path = Image.open(test_file)
         test_img = Image.open(test_file)
         st.image(test_img, caption="Test Signature", width=300)
 
@@ -53,9 +55,12 @@ def verify_page():
                     return
 
                 ref_img = Image.open(ref_path)
-                #ref = ref_img
+                #ref_proc_path = preprocess_to_dataset_style(ref_img,'REF.png')
+                #ref_img = Image.open(ref_proc_path)
                 ref = process_image(ref_img)
                 test = process_image(test_img)
+                st.image(ref, caption="ref Processed Signature", width=300)
+                st.image(test, caption="Test Processed Signature", width=300)
 
                 pred = model.predict([ref, test])[0][0]
 
@@ -63,7 +68,7 @@ def verify_page():
 
             # Decision
             print(pred)
-            if pred <= THRESHOLD:
+            if pred >= THRESHOLD:
                 st.error(" Forged Signature")
             else:
                 st.success("Genuine Signature")
