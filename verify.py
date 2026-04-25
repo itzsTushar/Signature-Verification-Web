@@ -59,8 +59,8 @@ def verify_page():
                 #ref_img = Image.open(ref_proc_path)
                 ref = process_image(ref_img)
                 test = process_image(test_img)
-                st.image(ref, caption="ref Processed Signature", width=300)
-                st.image(test, caption="Test Processed Signature", width=300)
+                #st.image(ref, caption="ref Processed Signature", width=300)
+               # st.image(test, caption="Test Processed Signature", width=300)
 
                 pred = model.predict([ref, test])[0][0]
 
