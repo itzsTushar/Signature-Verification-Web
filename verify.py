@@ -7,10 +7,10 @@ from numpy import asarray, pad
 from math import floor, ceil
 import os
 from model.metrics import euclidean_distance,constructive_loss
-from data.preprocess import process_image
+from data.preprocess import process_image,preprocess_to_dataset_style
 # ---------------- CONFIG ----------------
-THRESHOLD = 0.526
-MODEL_PATH ="model/BestModel (1).h5"
+THRESHOLD = 0.50
+MODEL_PATH ="model/BestModel3.h5"
 
 
 # ---------------- LOAD MODEL ----------------
@@ -38,9 +38,9 @@ def verify_page():
 
     if test_file:
 
-        #test_path = preprocess_to_dataset_style(np.array(Image.open(test_file)),"TEST.png")
+        test_path = preprocess_to_dataset_style(np.array(Image.open(test_file)),"TEST.png")
         #test_path = Image.open(test_file)
-        test_img = Image.open(test_file)
+        test_img = Image.open(test_path)
         st.image(test_img, caption="Test Signature", width=300)
 
         if st.button("Verify Signature"):
@@ -54,13 +54,13 @@ def verify_page():
                     st.error("Reference signature not found!")
                     return
 
-                ref_img = Image.open(ref_path)
-                #ref_proc_path = preprocess_to_dataset_style(ref_img,'REF.png')
-                #ref_img = Image.open(ref_proc_path)
+                ref_img = np.array(Image.open(ref_path))
+                ref_proc_path = preprocess_to_dataset_style(ref_img,'REF.png')
+                ref_img = Image.open(ref_proc_path)
                 ref = process_image(ref_img)
                 test = process_image(test_img)
-                #st.image(ref, caption="ref Processed Signature", width=300)
-               # st.image(test, caption="Test Processed Signature", width=300)
+                st.image(ref, caption="ref Processed Signature", width=300)
+                st.image(test, caption="Test Processed Signature", width=300)
 
                 pred = model.predict([ref, test])[0][0]
 

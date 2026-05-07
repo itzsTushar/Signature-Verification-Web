@@ -17,7 +17,7 @@ target_stats = {
  'foreground_ratio': 0.014
 }
 
-"""def preprocess_to_dataset_style(img, img_name, target_stats=target_stats):
+def preprocess_to_dataset_style(img, img_name, target_stats=target_stats):
     if img is None:
         raise ValueError("Image not found")
 
@@ -72,7 +72,7 @@ target_stats = {
     cv2.imwrite(save_path, final)
 
     #  RETURN PATH (as requested)
-    return save_path """
+    return save_path 
 # ---------------- PREPROCESS FUNCTION ----------------
 def process_image(im, img_dim=(224, 224)):
     print(im.size)
